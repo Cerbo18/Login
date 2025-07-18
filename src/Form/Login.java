@@ -207,6 +207,7 @@ public class Login extends javax.swing.JFrame {
         try {
             if(UserDatabase.users.isEmpty()){
                JOptionPane.showMessageDialog(this, "No accounts found");
+               return;
             }
             String UsernameInput = UsernameTextField.getText().trim();
             String EmailInput = EmailTextField.getText().trim();
