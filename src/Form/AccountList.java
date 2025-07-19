@@ -19,7 +19,7 @@ public class AccountList extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel model = (DefaultTableModel) AccountTable.getModel();
         for (User user : UserDatabase.users) {
-            model.addRow(new Object[]{user.getUsername(),user.getEmail(),user.getPassword()} );
+            model.addRow(new Object[]{user.getUsername(),user.getEmail(),user.getPassword(), user.getBalance()} );
         }
     }
 
@@ -82,11 +82,11 @@ public class AccountList extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Username", "Email Address", "Password"
+                "Username", "Email Address", "Password", "Current Balance"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -98,6 +98,7 @@ public class AccountList extends javax.swing.JFrame {
             AccountTable.getColumnModel().getColumn(0).setResizable(false);
             AccountTable.getColumnModel().getColumn(1).setResizable(false);
             AccountTable.getColumnModel().getColumn(2).setResizable(false);
+            AccountTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
